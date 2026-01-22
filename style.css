@@ -1,0 +1,212 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+/* APP LAYOUT */
+.app {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* LEFT MUSIC APP */
+.music-app {
+    width: 420px;
+    height: 100vh;
+    background: rgba(2, 6, 23, 0.96);
+    padding: 20px 20px 10px; 
+    color: white;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; 
+}
+
+
+/* RIGHT BACKGROUND */
+.right-bg {
+    flex: 1;
+    background: url("Images/bg.jpg") no-repeat center center/cover;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #1e293b;
+}
+
+.header img {
+    width: 45px;
+    height: 45px;
+}
+
+.header h1 {
+    font-size: 26px;
+    font-weight: bold;
+    color: #1db954;
+}
+
+/* NOW PLAYING */
+.now-playing {
+    text-align: center;
+    margin-top: 8px;   
+}
+
+.now-playing h2 {
+    font-size: 20px;
+}
+
+.now-playing p {
+    font-size: 13px;
+}
+
+
+.now-playing img {
+    width: 160px;      
+    height: 160px;     
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 6px; 
+}
+
+/* PROGRESS */
+#progress {
+    width: 100%;
+    margin: 15px 0;
+}
+
+/* CONTROLS */
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.controls button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    background: #1db954;
+    color: black;
+}
+
+.playlist-box {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    flex: 1;
+    min-height: 0; 
+}
+
+.playlist-box h3 {
+    font-size: 15px;
+    opacity: 0.8;
+    margin-bottom: 10px;
+}
+
+.playlist {
+    overflow-y: auto;
+    padding-right: 6px;
+    padding-top: 5px;
+    min-height: 110px;
+    max-height: 220px; 
+}
+
+
+/* SCROLLBAR */
+.playlist::-webkit-scrollbar {
+    width: 6px;
+}
+
+.playlist::-webkit-scrollbar-thumb {
+    background: #22c55e;
+    border-radius: 10px;
+}
+
+/* SONG ITEMS */
+#playlist li {
+    list-style: none;
+    padding: 12px;
+    margin-bottom: 6px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+#playlist li:hover {
+    background: #1db954;
+    color: black;
+}
+
+#playlist li.active {
+    background: #1db954;
+    color: black;
+    font-weight: bold;
+}
+ @media (max-width: 768px) {
+
+    html, body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    .app {
+        flex-direction: column;
+        width: 100vw;
+    }
+
+    .right-bg {
+        display: none;
+    }
+
+    .music-app {
+        width: 100vw;      /* 🔥 full screen */
+        max-width: 100%;
+        height: 100vh;
+        padding: 12px;
+        border-radius: 0;
+    }
+
+    .header {
+        justify-content: center;
+    }
+
+    .header h1 {
+        font-size: 18px;
+    }
+
+    .header img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .now-playing img {
+        width: 135px;
+        height: 135px;
+        margin-bottom: 6px;
+    }
+
+    .controls button {
+        width: 44px;
+        height: 44px;
+        font-size: 18px;
+    }
+
+    .playlist {
+        min-height: 140px;
+        max-height: 35vh;
+    }
+}

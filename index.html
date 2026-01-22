@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Music Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+    <!-- LEFT PANEL -->
+    <div class="music-app">
+
+        <div class="header">
+            <img src="Images/logo.png" alt="Logo">
+            <h1>Music Website</h1>
+        </div>
+
+        <div class="now-playing">
+            <img id="cover" src="Covers/cover.jpg">
+            <h2 id="title">Song One</h2>
+        </div>
+
+        <audio id="audio"></audio>
+
+        <input type="range" id="progress" value="0">
+
+        <div class="controls">
+            <button onclick="prevSong()">⏮</button>
+            <button id="playBtn" onclick="playPause()">▶️</button>
+            <button onclick="nextSong()">⏭</button>
+        </div>
+
+        <div class="playlist-box">
+            <h3>🎵 Playlist</h3>
+            <ul id="playlist" class="playlist"></ul>
+        </div>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="right-bg"></div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
