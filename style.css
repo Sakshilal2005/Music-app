@@ -81,7 +81,6 @@ html, body {
 /* PROGRESS */
 #progress {
     margin: 12px 0;
-    width: 100%;
 }
 
 /* CONTROLS */
@@ -194,4 +193,3 @@ html, body {
         font-size: 13px;
     }
 }
-
