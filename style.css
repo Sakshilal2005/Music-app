@@ -150,6 +150,7 @@ html, body {
     font-weight: bold;
 }
 
+/* 📱 PHONE RESPONSIVE (FIXED & CLEAN) */
 @media (max-width: 600px) {
 
     .music-app {
