@@ -39,12 +39,10 @@ const playBtn = document.getElementById("playBtn");
 function loadSong(i) {
     index = i;
     audio.src = songs[index].src;
-    audio.load();  // Important: reload audio source
     titleEl.innerText = songs[index].title;
     cover.src = songs[index].img;
     playBtn.innerText = "▶️";
     updateActive();
-    console.log("Loaded song:", songs[index].title);
 }
 
 /* Play / Pause toggle */
@@ -76,18 +74,12 @@ function prevSong() {
 
 /* Progress update */
 audio.addEventListener("timeupdate", () => {
-    if (audio.duration) {
-        progress.value = (audio.currentTime / audio.duration) * 100;
-    } else {
-        progress.value = 0;
-    }
+    progress.value = (audio.currentTime / audio.duration) * 100 || 0;
 });
 
 /* Seek */
 progress.addEventListener("input", () => {
-    if (audio.duration) {
-        audio.currentTime = (progress.value / 100) * audio.duration;
-    }
+    audio.currentTime = (progress.value / 100) * audio.duration;
 });
 
 /* Playlist UI */
@@ -106,8 +98,11 @@ songs.forEach((song, i) => {
 /* Active song highlight */
 function updateActive() {
     const items = document.querySelectorAll("#playlist li");
+
     items.forEach((li, i) => {
         li.classList.toggle("active", i === index);
+
+        // auto scroll active song into view
         if (i === index) {
             li.scrollIntoView({
                 behavior: "smooth",
@@ -117,14 +112,10 @@ function updateActive() {
     });
 }
 
-/* Auto next song on end */
+
+/* Auto next */
 audio.addEventListener("ended", nextSong);
 
-/* Log audio errors */
-audio.addEventListener("error", (e) => {
-    console.error("Audio error:", e);
-});
-
-/* Initialize */
+/* Initial */
 loadSong(0);
 updateActive();
