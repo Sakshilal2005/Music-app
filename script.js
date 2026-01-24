@@ -97,10 +97,21 @@ songs.forEach((song, i) => {
 
 /* Active song highlight */
 function updateActive() {
-    document.querySelectorAll("#playlist li").forEach((li, i) => {
+    const items = document.querySelectorAll("#playlist li");
+
+    items.forEach((li, i) => {
         li.classList.toggle("active", i === index);
+
+        // auto scroll active song into view
+        if (i === index) {
+            li.scrollIntoView({
+                behavior: "smooth",
+                block: "nearest"
+            });
+        }
     });
 }
+
 
 /* Auto next */
 audio.addEventListener("ended", nextSong);
